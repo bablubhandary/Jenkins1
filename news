@@ -1,0 +1,15 @@
+{
+agent any
+    stages
+    {
+    stage('s3Download') 
+        {      
+            steps {
+                withAWS(region:'us-east-2',credentials:'AKIAXUPUQMKGPV2KJPG4 (IAM)')\
+                {
+                    s3Download(file: "dockerfile.txt", bucket: 'kenkins3', path: 'path/to/source/dockerfile.txt'force:true)
+                }
+            }
+        }
+    }
+}
